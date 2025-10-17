@@ -218,10 +218,11 @@ function isPrime(num) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = Number(value);
+  if (Number.isNaN(num)) return def;
+  return num;
 }
-
 /**
  * Returns the cube of the given number.
  *
@@ -295,8 +296,13 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  if (num > 1) {
+    while (num % 2 === 0) {
+      num /= 2;
+    }
+  }
+  return num === 1;
 }
 
 /**
